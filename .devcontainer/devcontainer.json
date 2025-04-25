@@ -1,0 +1,40 @@
+{
+  "name": "Agent Testing - Dev Container",
+  "service": "devcontainer",
+  "workspaceFolder": "/workspaces/agent-testing",
+  "dockerComposeFile": "docker-compose.yml",
+  "initializeCommand": "sh ./.devcontainer/scripts/init.sh",
+  "postStartCommand": "sh ./.devcontainer/scripts/post-start.sh",
+  "customizations": {
+    "vscode": {
+      "launch": {
+        "version": "0.2.0",
+        "configurations": [
+          {
+            "name": "Python: Main",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "main.py",
+            "console": "integratedTerminal",
+            "args": "${command:pickArgs}"
+          }
+        ]
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-azuretools.vscode-docker",
+        "ms-python.pylint",
+        "ms-python.debugpy",
+        "ms-python.autopep8"
+      ],
+      "settings": {
+          "python.analysis.typeCheckingMode": "strict",
+          "python.defaultInterpreterPath": "/usr/local/bin/python",
+          "python.linting.enabled": true,
+          "python.formatting.provider": "black"
+      }
+    }
+  },
+  "remoteUser": "root"
+}

@@ -1,0 +1,9 @@
+services:
+  devcontainer:
+    build: .
+    volumes:
+      - ./../:/workspaces/agent-testing
+      - devcontainer-zshhistory:/root/commandhistory/.zsh_history
+    command: sleep infinity
+volumes:
+  devcontainer-zshhistory:
